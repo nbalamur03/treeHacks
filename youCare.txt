@@ -1,0 +1,285 @@
+
+  {
+    "appName": "pcos",
+    "appTiles": [
+      {
+        "tileWidth": "",
+        "tileHeight": "auto",
+        "items": [
+          {
+            "type": "title",
+            "text": "Polycystic Ovary Syndrome",
+            "props": {
+              "textAlign": "center"
+            }
+          },
+          {
+            "type": "spacer",
+            "size": "md"
+          },
+          {
+            "type": "paragraph",
+            "text": "PCOS is a disorder that affects 5-10% of women due to an imbalance of hormones. it’s common to receive a delayed diagnosis or none at all due to lack of awareness and its wide-range of symptoms.",
+            "props": {
+              "textAlign": "justify"
+            }
+          },
+          
+          {
+            "type": "spacer",
+            "size": "md"
+          },
+          {
+            "type": "layout_list",
+            "layout": "horizontal",
+            "props": {
+              "justifyContent": "space-evenly"
+            },
+            "items": [
+              {
+                "type": "layout_list",
+                "layout": "vertical",
+                "items": [
+                  {
+                    "type": "title",
+                    "text": "🔻PCOS Symptoms",
+                    "textAlign": "center",
+                    "props": {
+                      "marginBottom": "0px"
+                    }
+                  },  
+                  {
+                    "type": "spacer",
+                    "size": "md"
+                  },
+                  {
+                    "type": "spacer",
+                    "size": "sm"
+                  },
+                  {
+                    "type": "layout_list",
+                    "layout": "vertical",
+                    "field": "{{ symptoms }}",
+                    "strategy": {
+                      "name": "choose_first_n",
+                      "n": 5
+                    },
+                  "items": [
+                    {   
+                      "type": "paragraph",
+                      "text": "{{ id }}.  {{ name }}"
+                    }
+                  ]
+                }
+                ]
+                
+              },
+              {
+            "type": "layout_list",
+            "layout": "vertical",
+            "items": [
+              {
+                "type": "form",
+                "items":[
+                  {}
+                ],
+                "props": {
+                  "textAlign":"justify",
+                  "buttonType":"brand"
+                },
+                "submitButton": {
+                  "compressed":"true",
+						      "text": "Sync My Data",
+						      "loadingText": "Syncing Data..."
+					      },
+					      "onSubmit": {
+						      "api": "https://raw.githubusercontent.com/brookebols/symptoms-api/main/userData.json",
+						      "name": "userData",
+						      "request": "GET"
+                  }
+              },
+              {
+                "type": "spacer",
+                "size": "sm"
+              },
+              {
+                "type": "layout_list",
+                "layout": "vertical",
+                "field": "{{ userData.userData }}",
+                "items": [
+                  {
+                    "type": "paragraph",
+                    "text": "{{ hasSymptom }}",
+                    "size":"sm"
+                  }
+                ]
+              }
+            ]  
+          }
+            ]
+          }, 
+           {
+             "type":"paragraph",
+             "text":"  "                                                    
+
+           },    
+        {
+          "type": "title",
+          "text": "📚Clinical Research",
+          "props": {
+            "textAlign": "center"
+          }
+        },
+         {
+              "type": "spacer",
+              "props":{
+                "size":"sm"
+              }
+            },
+        {
+          "type": "layout_list",
+          "layout": "vertical",
+          "items": [
+            {
+              "type": "button",
+              "textAlign": "center",
+              "buttonLink": "https://www.nature.com/articles/nrdp201657",
+              "text": "Assessment",
+              "props": {
+                "textAlign":"center",
+                "buttonType": "brand",
+                "fullWidth":"true"
+              }
+            },
+            {
+              "type": "spacer",
+              "props":{
+                "size":"sm"
+              }
+            },
+            {
+              "type": "button",
+              "buttonLink": "https://academic.oup.com/jcem/article/98/12/4565/2836525",
+              "text": "Treatment",
+              "props": {
+                "buttonType": "brand",
+                 "fullWidth":"true"
+              }
+            },
+            {
+              "type": "spacer",
+              "props":{
+                "size":"sm"
+              }
+            },
+            {
+              "type": "button",
+              "buttonLink": "https://academic.oup.com/humrep/article/33/9/1602/5062589",
+              "text": "Management",
+              "props": {
+                "buttonType": "brand",
+                 "fullWidth":"true"
+              }
+            }
+          ]
+        }
+            
+        ]
+      },
+      {
+        "tileWidth": "small",
+        "tileHeight": "auto",
+        "items": [
+				{
+					"type": "form",
+					"isFullHeight": true,
+					"items": [
+            {
+              "type": "title",
+              "text": "Want to help?🤝",
+              "props": {
+                "textAlign": "center"
+              }
+            },
+            {
+              "type": "mini_section",
+              "paragraphText": "PCOS Challenge is a leading non-profit organization for PCOS awareness, advocacy, and research.",
+              "props": {
+                "textAlign": "justify"
+              }
+            },
+            {
+              "type": "button",
+              "text": "Learn more here",
+              "buttonLink": "https://pcoschallenge.org/",
+              "props": {
+                "compressed": "true",
+                "buttonType": "brand",
+                "fullWidth": "true"
+              }
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            },
+						{
+							"type": "text_input",
+							"name": "name",
+							"label": "Name:",
+							"inputType": "strin",
+							"required": true,
+							"isFullWidth": true,
+							"isFullHeight": true
+						},
+						{
+							"type": "text_input",
+							"name": "recipient",
+							"label": "Email:",
+							"inputType": "string",
+							"required": true,
+							"isFullWidth": true,
+							"isFullHeight": true
+						},
+						{
+							"type": "text_input",
+							"name": "amount",
+							"label": "Donation amount:",
+							"inputType": "number",
+							"required": true,
+							"isFullWidth": true,
+							"isFullHeight": true
+						},
+						{
+							"type": "spacer",
+							"props": {
+								"size": "sm"
+							}
+						}
+					],
+					"headers": {
+						"accept": "application/json",
+						"Authorization": "24388e4bf2b444db92c9b03a6e22c708:Q4uhvRXpXguJfEbjOw0KxYMDbRjLXB"
+					},
+					"submitButton": {
+						"text": "Donate ❤️",
+						"loadingText": "Sending the money..."
+					},
+					"onSubmit": {
+						"api": "https://sandbox.checkbook.io/v3/check/digital",
+						"name": "Checkbook.io",
+						"request": "POST"
+					},
+					"defaultValues": {
+						"description": "test"
+					}
+				}
+			]
+      }
+    ],
+    "api": {
+		    "url": "https://raw.githubusercontent.com/brookebols/symptoms-api/main/pcosSymptoms.json",
+		    "method": "GET",
+		    "headers": {},
+		    "params": []
+	    }
+  }
